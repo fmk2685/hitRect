@@ -33,9 +33,9 @@ while True:
         rect_time = int(rect_time) #強迫症
         rect_time_0 = rect_time #rect_time_0用來記錄rect_time的初始值，很後面會用到
         break
+light_thr = 245 #照光亮度判定閥值，預設245(亮度範圍為0~255，越高越亮)
 T = 0 #記錄答題正確次數
 F = 0 #記錄答題錯誤次數
-light_thr = 220 #照光亮度判定閥值，預設220(亮度範圍為0~255，越高越亮)
 F_key = 0 #答題錯誤會暫時變為1，用於判斷式
 end_key = 0 #選擇退出會變為1，用於break出多重迴圈
 ret, frame = cap.read() #讀取攝像頭影像
