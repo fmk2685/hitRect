@@ -8,7 +8,7 @@ import random as rr
 '''
 cap = cv2.VideoCapture(0) #使用0號攝像頭(也就是內建攝像頭)，想要使用外接攝像頭可以改成1或更高的數字，接幾個攝像頭就多幾個可選數字
 print '您預設的攝像頭預設解析度為：', (int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)), int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)))
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480) #設定影像解析度為640 x 480，可自行調整，若刪除這兩行就是使用攝像頭預設解析度 (解析度低一點會比較快，而且反正也是要在昏暗環境玩的不用照的太帥XD)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480) #設定影像解析度為640 x 480，可自行調整，若刪除這兩行就是使用攝像頭預設解析度 (解析度低一點會比較快)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 #若攝像頭不支持640 x 480解析度則會保持預設解析度，也能玩
 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -39,7 +39,7 @@ F = 0 #記錄答題錯誤次數
 F_key = 0 #答題錯誤會暫時變為1，用於判斷式
 end_key = 0 #選擇退出會變為1，用於break出多重迴圈
 ret, frame = cap.read() #讀取攝像頭影像
-frame = cv2.flip(frame, 1, dst=None) #實際手的移動方向會和影像中相反，cv2.flip()將影像水平反轉已達到螢幕鏡像效果
+frame = cv2.flip(frame, 1, dst=None) #實際手的移動方向會和影像中相反，cv2.flip()將影像水平反轉以達到螢幕鏡像效果
 frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #frame是用來顯示的彩色圖，frame_gray是用來計算的灰階圖(灰階圖計算較快)
 print '\n遊戲視窗可調整大小，遊戲中可用「p q a w s e d」七個按鍵來調整參數及退出' #按鍵功能請看尾段註釋或README.md  #遊戲視窗可調整大小，但建議不要拉太大，電腦畫圖會變吃力，影像會變比較卡
 print '照亮中間的方塊開始遊戲'
