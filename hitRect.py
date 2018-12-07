@@ -24,7 +24,7 @@ n_max = min(height, width) / size #在 height x width 的解析度下，比較�
 #其實要避免方塊彼此重疊有更好的方法，不過這是最簡單方便的
 while True:
     n = input('請輸入1～'+str(n_max)+'的方塊出現個數初始值(正整數)：')
-    if n>0 and n==int(n):
+    if n>0 and n<=n_max and n==int(n):
         n = int(n) #強迫症
         break
 while True:
@@ -127,12 +127,12 @@ while True: #以下直到下個while前，為方塊接連出現階段
             print '亮度判定閥值='+str(light_thr)
         elif key == ord('w'): #按下「w」會增加方塊出現個數，在下一輪出現的方塊才會改變數量
             n += 1
-            print '方塊出現個數='+str(n)
             if n > n_max: n = n_max
+            print '方塊出現個數='+str(n)
         elif key == ord('s'): #按下「s」會減少方塊出現個數，在下一輪出現的方塊才會改變數量
             n -= 1
-            print '方塊出現個數='+str(n)
             if n <1: n = 1
+            print '方塊出現個數='+str(n)
         elif key == ord('e'): #按下「e」會增加方塊出現間隔時間
             if rect_time != 1:
                 rect_time += 20
